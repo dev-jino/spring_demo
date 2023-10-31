@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3 th:text="${product.productName}">product.productName</h3>
+    <h3 th:text="${product.getProductName()}">product.productName</h3>
+    <h3>직접 출력하기 = [[${product.productName}]]</h3>
+</body>
+</html>

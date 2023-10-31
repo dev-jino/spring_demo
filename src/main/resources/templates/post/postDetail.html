@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>글번호</h3>
+    <h1 th:text="${post.postId}">post.postId</h1>
+    <h3>제목</h3>
+    <h1 th:text="${post.title}">post.title</h1>
+    <h3>내용</h3>
+    <h1 th:text="${post.body}">post.body</h1>
+    <h3>좋아요</h3>
+    <h1 th:text="${post.likes}">post.likes</h1>
+    <button type="button" th:onclick="|location.href='@{/posts/list}'|">목록으로</button>
+    <button type="button" th:onclick="|location.href='@{/posts/modify(postId=${post.postId})}'|">수정하기</button>
+    <button type="button" th:onclick="|location.href='@{/posts/delete(postId=${post.postId})}'|">삭제하기</button>
+</body>
+</html>

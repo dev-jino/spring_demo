@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.repository.PostRepository">
+    <select id="selectAllPosts" resultType="com.example.demo.model.Post">
+        select * from post
+    </select>
+    <select id="selectPostById" resultType="com.example.demo.model.Post"
+            parameterType="int">
+        select * from post where postId=#{postId}
+    </select>
+    <insert id="insertPost" useGeneratedKeys="true"
+            keyProperty="postId" parameterType="com.example.demo.model.Post">
+        insert into Post (title, body, likes)
+        values (#{title}, #{body}, #{likes})
+    </insert>
+    <update id="updatePost" parameterType="com.example.demo.model.Post">
+        update post set
+            title = #{title},
+            body = #{body},
+            likes = #{likes}
+        where postId = #{postId}
+    </update>
+    <delete id="deletePost" parameterType="int">
+        delete from post where postId = #{postId}
+    </delete>
+</mapper>
